@@ -61,7 +61,7 @@ const Ragister = () => {
     }
     setNotification(null);
 
-    const response = await fetch("http://localhost:3002/register", {
+    const response = await fetch("http://localhost:3001/register", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -73,7 +73,7 @@ const Ragister = () => {
   };
 
   const getUser = async () => {
-    const response = await fetch("http://localhost:3002/register", {
+    const response = await fetch("http://localhost:3001/register", {
       method: "GET",
     });
     const data = await response.json();
