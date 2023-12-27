@@ -23,7 +23,7 @@ const Ragister = () => {
   const [user, setUser] = useState({
     FirstName: "",
     LastName: "",
-    DOB: "",
+    DOB:  "",
     Gender: "",
     Email: "",
     Phone: "",
@@ -50,7 +50,7 @@ const Ragister = () => {
     return false;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e ) => {
     e.preventDefault();
 
     if (isEmpty()) {
@@ -68,8 +68,8 @@ const Ragister = () => {
         "Content-Type": "application/json",
       },
     });
-    const data = await response.text();
-    console.log(data);
+    // const data = await response.text(); // tesing if data geting perfect or not
+    // console.log(data); 
   };
 
   const getUser = async () => {

@@ -54,6 +54,7 @@ function a11yProps(index) {
 
 const Admin = () => {
   const [userData, setUserData] = useState([]);
+  const[employeeData, setEmployeeData] = useState([]);
 
   const getUser = async () => {
     const response = await fetch("http://localhost:3001/register", {
@@ -63,8 +64,18 @@ const Admin = () => {
     setUserData(data);
     console.log(data);
   };
+
+  const getEmployee = async ()=>{
+    const response = await fetch("http://localhost:3001/employee",{
+      method:"GET"
+    });
+    const data = await response.json();
+    setEmployeeData(data);
+    console.log(data)
+  }
   useEffect(() => {
     getUser();
+    getEmployee();
   });
 
   // for tabs
@@ -81,7 +92,7 @@ const Admin = () => {
 
   return (
     <>
-      <Header />
+      <Header id="Admin"/>
 
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 20, borderColor: "lightgrey" }}>
@@ -163,7 +174,20 @@ const Admin = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableCell>1</TableCell>
+              {employeeData.map((row) => (
+                  <TableRow
+                    key={row.EmplyeeId}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell>{row.EmplyeeId}</TableCell>
+                    <TableCell>{row.EmplyeeName}</TableCell>
+                    <TableCell>{row.EmplyeeEmail}</TableCell>
+                    <TableCell>{row.EmplyeePhone}</TableCell>
+                    <TableCell>{row.EmplyeePassword}</TableCell>
+                    <TableCell>{row.createdAt}</TableCell>
+                    <TableCell>{row.updatedAt}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </TableContainer>

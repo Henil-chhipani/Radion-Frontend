@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBBtn,
   MDBContainer,
@@ -15,13 +15,42 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function App() {
+  const [user, setUser] = useState({
+    User: "Customer",
+    Email: "",
+    Password: "",
+  });
+  let id, value;
+  const handleInputs = (e) => {
+    console.log(e);
+    id = e.target.id;
+    value = e.target.value;
+    setUser({ ...user, [id]: value });
+  };
   const history = useNavigate();
-  const handleLogin = () => {
-    // Perform your login logic here
-    // For now, let's assume the login is successful
-    // and redirect to the home page
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3001/login", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     history("/");
   };
+
+  const getLoginDataasync = async () => {
+    const response = await fetch("http://localhost:3001/login", {
+      method: "GET",
+    });
+    const data = await response.json();
+    console.log(data);
+  };
+  useEffect(() => {
+    getLoginDataasync();
+  }, []);
 
   return (
     <MDBContainer className="my-5">
@@ -57,38 +86,52 @@ function App() {
               </h5>
               <div>
                 <MDBRadio
-                  btn
                   btnColor="#000"
-                  id="btn-radio"
-                  name="options"
+                  id="User"
+                  name="user"
                   wrapperTag="span"
                   label="Customer"
                   defaultChecked
+                  value={"Customer"}
+                  onChange={handleInputs}
                 />
                 <MDBRadio
-                  btn
                   btnColor="#000"
-                  id="btn-radio2"
-                  name="options"
-                  wrapperClass="mx-4"
+                  id="User"
+                  name="user"
                   wrapperTag="span"
                   label="Sales executive"
+                  value={"Sales Team"}
+                  onChange={handleInputs}
+                />
+                <MDBRadio
+                  btnColor="#000"
+                  id="User"
+                  name="user"
+                  wrapperTag="span"
+                  label="Admin"
+                  value={"Admin"}
+                  onChange={handleInputs}
                 />
               </div>
               &nbsp;
               <MDBInput
                 wrapperClass="mb-4"
                 label="Email address"
-                id="formControlLg"
+                id="Email"
                 type="email"
                 size="lg"
+                value={user.Email}
+                onChange={handleInputs}
               />
               <MDBInput
                 wrapperClass="mb-4"
                 label="Password"
-                id="formControlLg"
+                id="Password"
                 type="password"
                 size="lg"
+                value={user.Password}
+                onChange={handleInputs}
               />
               <MDBBtn
                 className="mb-4 px-5"

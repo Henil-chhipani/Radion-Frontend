@@ -13,18 +13,153 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBCollapse,
-  MDBDropdownItem
+  MDBDropdownItem,
 } from "mdb-react-ui-kit";
 
-const Header = () => {
+const Header = ({ id }) => {
   const [openBasic, setOpenBasic] = useState(false);
 
   const myImage = require("../Assets/media/img1.png").default;
+  let Header_id = id;
+// admin Header code----------------------------------------------------------------------
+  if (Header_id == "Admin") {
+    return (
+      <>
+        <MDBNavbar expand="lg" light bgColor="white" fixed>
+          <MDBContainer fluid>
+            <MDBNavbarBrand href="/admin">
+              <MDBIcon fas icon="boxes fa me-2" style={{ color: "#fa204c" }} />
+              Radion Admin pannel
+            </MDBNavbarBrand>
 
+            <MDBNavbarToggler
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              onClick={() => setOpenBasic(!openBasic)}
+            >
+              <MDBIcon icon="bars" fas />
+            </MDBNavbarToggler>
+
+            <MDBCollapse navbar open={openBasic}>
+              <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
+                <MDBNavbarItem>
+                  <MDBNavbarLink active aria-current="page" href="/Salesteam">
+                    Product Mangement
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href="/SalesAnalysis">
+                    Sales anlysis data
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem>
+                  <MDBDropdown>
+                    <MDBDropdownToggle
+                      tag="a"
+                      className="nav-link"
+                      role="button"
+                    >
+                      Dropdown
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu>
+                      <MDBDropdownItem link>Action</MDBDropdownItem>
+                      <MDBDropdownItem link>Another action</MDBDropdownItem>
+                      <MDBDropdownItem link>
+                        Something else here
+                      </MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                </MDBNavbarItem>
+              </MDBNavbarNav>
+
+              <MDBBtn
+                color="light"
+                className=" p-1"
+                style={{
+                  fontSize: "10px",
+                  width: "200px",
+                  backgroundColor: "#fa204c",
+                  color: "white",
+                }}
+              >
+                Henil Chhipani
+              </MDBBtn>
+            </MDBCollapse>
+          </MDBContainer>
+        </MDBNavbar>
+      </>
+    );
+  }
+ // Sales employee site Header ------------------------------------------------------------
+  if (Header_id == "Salesexc") {
+    return (
+      <MDBNavbar expand="lg" light bgColor="white" fixed>
+        <MDBContainer fluid>
+          <MDBNavbarBrand href="/salesteam">
+            <MDBIcon fas icon="boxes fa me-2" style={{ color: "#fa204c" }} />
+            Radion Sales pannel
+          </MDBNavbarBrand>
+
+          <MDBNavbarToggler
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onClick={() => setOpenBasic(!openBasic)}
+          >
+            <MDBIcon icon="bars" fas />
+          </MDBNavbarToggler>
+
+          <MDBCollapse navbar open={openBasic}>
+            <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
+              <MDBNavbarItem>
+                <MDBNavbarLink active aria-current="page" href="/salesteam">
+                  Product Mangement
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href="/salesAnalysis">
+                  Sales anlysis data
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+
+              <MDBNavbarItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle tag="a" className="nav-link" role="button">
+                    Dropdown
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu>
+                    <MDBDropdownItem link>Action</MDBDropdownItem>
+                    <MDBDropdownItem link>Another action</MDBDropdownItem>
+                    <MDBDropdownItem link>Something else here</MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavbarItem>
+            </MDBNavbarNav>
+
+            <MDBBtn
+              color="light"
+              className=" p-1"
+              style={{
+                fontSize: "10px",
+                width: "200px",
+                backgroundColor: "#fa204c",
+                color: "white",
+              }}
+            >
+              Henil Chhipani
+            </MDBBtn>
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
+    );
+  }
+  // customer site Header----------------------------------------------------------------
   return (
-    <MDBNavbar expand='lg' light bgColor='white' fixed>
+    <MDBNavbar expand="lg" light bgColor="white" fixed>
       <MDBContainer fluid>
-        <MDBNavbarBrand href="#">
+        <MDBNavbarBrand href="/">
           <MDBIcon fas icon="boxes fa me-2" style={{ color: "#fa204c" }} />
           Radion
         </MDBNavbarBrand>
@@ -46,13 +181,13 @@ const Header = () => {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href="#">Link</MDBNavbarLink>
+              <MDBNavbarLink href="#">Find Product</MDBNavbarLink>
             </MDBNavbarItem>
 
             <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag="a" className="nav-link" role="button">
-                  Dropdown
+                  Categories
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
                   <MDBDropdownItem link>Action</MDBDropdownItem>
@@ -72,8 +207,9 @@ const Header = () => {
               backgroundColor: "#fa204c",
               color: "white",
             }}
+            href="/login"
           >
-            Henil Chhipani
+            Signup/Login
           </MDBBtn>
         </MDBCollapse>
       </MDBContainer>
