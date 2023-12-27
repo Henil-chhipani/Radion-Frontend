@@ -8,7 +8,7 @@ The Integrated Sales and Customer Management System aims to streamline and enhan
 
 ### 1. Customer side app:
 
-    This is cutomer side frontend which is showing diffrent product to the cutomer. and cutoner can buy it.
+This is cutomer side frontend which is showing diffrent product to the cutomer. and cutoner can buy it.
 
 Screnn shot:
 
@@ -21,7 +21,7 @@ Screnn shot:
 
 ### 2. Sales Team side app:
 
-    This is Sales excutive side frontend. Sales employee can add or remove product. And see analysis of every product sell.
+This is Sales excutive side frontend. Sales employee can add or remove product. And see analysis of every product sell.
 
 
 - Sales pannel
