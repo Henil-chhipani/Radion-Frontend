@@ -11,11 +11,6 @@ import {
   MDBRadio,
   MDBBadge,
 } from "mdb-react-ui-kit";
-import { DateField } from "@mui/x-date-pickers/DateField";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import Alert from "@mui/material/Alert";
 
@@ -23,13 +18,12 @@ const Ragister = () => {
   const [user, setUser] = useState({
     FirstName: "",
     LastName: "",
-    DOB:  "",
+    DOB: "",
     Gender: "",
     Email: "",
     Phone: "",
     Address: "",
     Password: "",
-    RePassword: "",
   });
   let id, value;
   const [notification, setNotification] = useState(null);
@@ -50,7 +44,7 @@ const Ragister = () => {
     return false;
   };
 
-  const handleSubmit = async (e ) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isEmpty()) {
@@ -61,27 +55,44 @@ const Ragister = () => {
     }
     setNotification(null);
 
-    const response = await fetch("http://localhost:3001/register", {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    // const data = await response.text(); // tesing if data geting perfect or not
-    // console.log(data); 
-  };
+    try {
+      const response = await fetch(
+        "http://localhost:3001/api/v1/users/register",
+        {
+          method: "POST",
+          body: JSON.stringify(user),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+console.log("response:",response.status);
+      if (!response.ok) {
+        if (response.status === 409) {
+          setNotification("user already exists....");
+        }
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-  const getUser = async () => {
-    const response = await fetch("http://localhost:3001/register", {
-      method: "GET",
-    });
-    const data = await response.json();
-    console.log(data);
+      setNotification("done user register");
+
+      // Rest of your code to handle the response...
+    } catch (error) {
+      console.error("Fetch error:", error);
+
+      setNotification("Failed to register user. Please try again.");
+    }
   };
+  // const getUser = async () => {
+  //   const response = await fetch("http://localhost:3001/register", {
+  //     method: "GET",
+  //   });
+  //   const data = await response.json();
+  //   console.log(data);
+  // };
 
   useEffect(() => {
-    getUser();
+    // getUser();
   }, []);
 
   return (
@@ -137,7 +148,7 @@ const Ragister = () => {
               id="Gender"
               name="gender"
               label="Male"
-              style={{borderColor:"black",borderRadius:"3px"}}
+              style={{ borderColor: "black", borderRadius: "3px" }}
               value={"Male"}
               onChange={handleInputs}
             />
@@ -147,7 +158,7 @@ const Ragister = () => {
               id="Gender"
               name="gender"
               label="Female"
-              style={{borderColor:"black",borderRadius:"3px"}}
+              style={{ borderColor: "black", borderRadius: "3px" }}
               value={"Female"}
               onChange={handleInputs}
             />
@@ -198,8 +209,6 @@ const Ragister = () => {
               id="RePassword"
               type="password"
               size="lg"
-              value={user.RePassword}
-              onChange={handleInputs}
             />
           </MDBCol>
         </MDBRow>
