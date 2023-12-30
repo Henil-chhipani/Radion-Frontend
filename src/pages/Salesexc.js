@@ -20,9 +20,9 @@ const Salesexc = () => {
 let Header_id="Salesexc";
   useEffect(() => {
     // Fetch product data from the API
-    fetch("https://dummyjson.com/products")
+    fetch("http://localhost:3001/api/v1/users/getProducts")
       .then((response) => response.json())
-      .then((data) => setProducts(data.products))
+      .then((data) => setProducts(data.data))
       .catch((error) => console.error("Error fetching product data:", error));
   }, []);
 
@@ -70,7 +70,7 @@ let Header_id="Salesexc";
           {Array.isArray(products) && products.length > 0 ? (
             products.map((product) => (
               <MDBCol size="md-3">
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.product_id} product={product} />
               </MDBCol>
             ))
           ) : (

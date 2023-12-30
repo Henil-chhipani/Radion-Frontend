@@ -62,7 +62,7 @@ const Ragister = () => {
           method: "POST",
           body: JSON.stringify(user),
           headers: {
-            "Content-Type": "application/json",
+              
           },
         }
       );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import {
   MDBBtn,
   MDBContainer,
@@ -31,26 +32,28 @@ function App() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/login", {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    history("/");
-  };
+    try {
+      const response = await fetch("http://localhost:3001/api/v1/users/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        credentials: 'include',
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-  const getLoginDataasync = async () => {
-    const response = await fetch("http://localhost:3001/login", {
-      method: "GET",
-    });
-    const data = await response.json();
-    console.log(data);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+      }
+      const responseData = await response.json();
+      console.log("Login successful:", responseData);
+
+      history("/");
+    } catch (error) {
+      console.error("Login failed:", error.message);
+    }
   };
-  useEffect(() => {
-    getLoginDataasync();
-  }, []);
 
   return (
     <MDBContainer className="my-5">

@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import Salesexc from "./pages/Salesexc";
 import AddEmployee from "./pages/AddEmployee";
 import SalesAnalysis from "./pages/SalesAnalysis";
+import AddProduct from "./pages/AddProduct";
 
 function AppRoutes() {
   const router = createBrowserRouter([
@@ -44,6 +45,10 @@ function AppRoutes() {
     {
       path:"/salesAnalysis",
       element: <SalesAnalysis/>
+    },
+    {
+      path:"/AddProduct",
+      element: <AddProduct/>
     },
   ]);
   return <RouterProvider router={router} />;

@@ -16,7 +16,7 @@ import {
   MDBDropdownItem,
 } from "mdb-react-ui-kit";
 
-const Header = ({ id }) => {
+const Header = ({ isAuthenticated,id,userFirstName }) => {
   const [openBasic, setOpenBasic] = useState(false);
 
   const myImage = require("../Assets/media/img1.png").default;
@@ -198,19 +198,24 @@ const Header = ({ id }) => {
             </MDBNavbarItem>
           </MDBNavbarNav>
 
-          <MDBBtn
-            color="light"
-            className=" p-1"
-            style={{
-              fontSize: "10px",
-              width: "200px",
-              backgroundColor: "#fa204c",
-              color: "white",
-            }}
-            href="/login"
-          >
-            Signup/Login
-          </MDBBtn>
+          {isAuthenticated ? (
+            <span style={{ fontSize: "14px", marginRight: "10px" }}>
+              Hello, {userFirstName}
+            </span>
+          ) : (
+            <MDBBtn
+              color="light"
+              className=" p-1"
+              style={{
+                fontSize: "10px",
+                width: "200px",
+                backgroundColor: "#fa204c",
+                color: "white",
+              }}
+              href="/login"
+            >
+              Signup/Login
+            </MDBBtn>)}
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
