@@ -36,7 +36,7 @@ This is Admin side frontend. Admin can restrict the user, Add sales emplee and g
   ![Screenshot5.png](./image/README/Screenshot5.png)
 - Sales employee data
   ![Screenshot6.png](./image/README/Screenshot6.png)
--Adding new Sales Employee
+- Adding new Sales Employee
   ![addingemployee.png](./image/README/adding_new_employee.png)
 
 ## Technology Stack:
