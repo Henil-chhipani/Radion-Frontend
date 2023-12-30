@@ -18,7 +18,8 @@ Screnn shot:
   ![Screenshot2.png](./image/README/Screenshot2.png)
 - Singup App
   ![Screenshot3.png](./image/README/Screenshot3.png)
-
+- Ordering function
+  ![Screenshot3.png](./image/README/order_function%20.png)
 ### 2. Sales Team side app:
 
 This is Sales excutive side frontend. Sales employee can add or remove product. And see analysis of every product sell.
@@ -35,6 +36,8 @@ This is Admin side frontend. Admin can restrict the user, Add sales emplee and g
   ![Screenshot5.png](./image/README/Screenshot5.png)
 - Sales employee data
   ![Screenshot6.png](./image/README/Screenshot6.png)
+-Adding new Sales Employee
+  ![addingemployee.png](./image/README/adding_new_employee.png)
 
 ## Technology Stack:
 
