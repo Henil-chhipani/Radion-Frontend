@@ -23,10 +23,10 @@ Screnn shot:
 
 This is Sales excutive side frontend. Sales employee can add or remove product. And see analysis of every product sell.
 
-
 - Sales pannel
   ![Screenshot7.png](./image/README/Screenshot7.png)
-
+- Adding Product
+  ![Screenshot7.png](./image/README/adding_product.png)
 ### 3. Admin side app:
 
 This is Admin side frontend. Admin can restrict the user, Add sales emplee and give the singup and longin access.
@@ -38,7 +38,30 @@ This is Admin side frontend. Admin can restrict the user, Add sales emplee and g
 
 ## Technology Stack:
 
-All frontend work done in React js, Backend word done in node js and database i use i mongodb. Overall this complete in MERN stack.
+For forntend : React Js and MDB and Material Ui library
 
+For Backenf : Node JS and Expressjs
+
+For Database : MongoDB
+
+For checking backend: Postman 
+
+Git, Github
+
+For Cloud photos : cloudinary
+
+## Runing Fuctinalities :
+
+    Resgistring user and store in MongoDb
+
+    Login with email or phone number
+
+    Add Product (Sales employee)
+
+    Show all products (Customer & sales team)
+
+    Buy a product (Customer)
+
+    Add order details in Order Database
 
 ### Still building ............................................
