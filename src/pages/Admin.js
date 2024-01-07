@@ -57,12 +57,13 @@ const Admin = () => {
   const[employeeData, setEmployeeData] = useState([]);
 
   const getUser = async () => {
-    const response = await fetch("http://localhost:3001/register", {
+    const response = await fetch("http://localhost:3001/api/v1/users/getAllUser", {
       method: "GET",
     });
     const data = await response.json();
-    setUserData(data);
-    console.log(data);
+    console.log("data is::",data);
+    setUserData(data.data);
+    
   };
 
   const getEmployee = async ()=>{
@@ -76,7 +77,7 @@ const Admin = () => {
   useEffect(() => {
     getUser();
     getEmployee();
-  });
+  },[]);
 
   // for tabs
 
