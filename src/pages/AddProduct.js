@@ -76,7 +76,7 @@ const AddProduct = () => {
         style={{ marginRight: "35%", marginLeft: "35%", marginTop: "2%" }}
         onSubmit={handleSubmit}
       >
-        {notification && <Alert severity="error">{notification}</Alert>}
+        {notification && <Alert severxity="error">{notification}</Alert>}
         <div div className="d-flex flex-row mt-2">
           <MDBIcon fas icon="boxes fa-3x me-3" style={{ color: "#fa204c" }} />
           <span className="h1 fw-bold mb-0">Radion</span>

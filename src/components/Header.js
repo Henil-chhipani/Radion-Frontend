@@ -15,8 +15,10 @@ import {
   MDBCollapse,
   MDBDropdownItem,
 } from "mdb-react-ui-kit";
-
-const Header = ({ isAuthenticated,id,userFirstName }) => {
+import { useAuth } from "../utils/Auth";
+import {User_id} from "../pages/User_id.js"
+const Header = ({id}) => {
+  const { isAuthenticated, userFirstName, login, logout } = useAuth();
   const [openBasic, setOpenBasic] = useState(false);
 
   const myImage = require("../Assets/media/img1.png").default;
@@ -199,9 +201,9 @@ const Header = ({ isAuthenticated,id,userFirstName }) => {
           </MDBNavbarNav>
 
           {isAuthenticated ? (
-            <span style={{ fontSize: "14px", marginRight: "10px" }}>
-              Hello, {userFirstName}
-            </span>
+            <MDBBtn style={{ fontSize: "14px", marginRight: "5px",width:"150px" }} href="/user" >
+            Hello, {userFirstName}
+            </MDBBtn>
           ) : (
             <MDBBtn
               color="light"
@@ -215,7 +217,8 @@ const Header = ({ isAuthenticated,id,userFirstName }) => {
               href="/login"
             >
               Signup/Login
-            </MDBBtn>)}
+            </MDBBtn>)
+            }
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>

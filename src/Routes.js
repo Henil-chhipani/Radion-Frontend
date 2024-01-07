@@ -47,7 +47,7 @@ function AppRoutes() {
       element: <SalesAnalysis/>
     },
     {
-      path:"/AddProduct",
+      path:"/addProduct",
       element: <AddProduct/>
     },
   ]);

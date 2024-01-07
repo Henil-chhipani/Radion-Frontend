@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header isAuthenticated={false}/>
       <MDBCarousel showControls showIndicators touch={false}>
         <MDBCarouselItem itemId={1}>
           <img

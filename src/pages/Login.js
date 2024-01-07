@@ -14,8 +14,10 @@ import {
   MDBBtnGroup,
 } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/Auth";
 
 function App() {
+  const { isAuthenticated, userFirstName, login, logout } = useAuth();
   const [user, setUser] = useState({
     User: "Customer",
     Email: "",
@@ -36,7 +38,7 @@ function App() {
       const response = await fetch("http://localhost:3001/api/v1/users/login", {
         method: "POST",
         body: JSON.stringify(user),
-        credentials: 'include',
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -46,9 +48,11 @@ function App() {
         const errorData = await response.json();
         throw new Error(errorData.message);
       }
+
       const responseData = await response.json();
       console.log("Login successful:", responseData);
-
+      
+      login(responseData.data.user.FirstName);
       history("/");
     } catch (error) {
       console.error("Login failed:", error.message);

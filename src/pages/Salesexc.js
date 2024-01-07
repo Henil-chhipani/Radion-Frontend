@@ -58,7 +58,7 @@ let Header_id="Salesexc";
               <MDBCardBody>
                 <MDBCardTitle>New product</MDBCardTitle>
                 <MDBCardText>add new product</MDBCardText>
-                <MDBBtn href="#" color="">
+                <MDBBtn href="/addProduct" color="">
                   Add product
                 </MDBBtn>
               </MDBCardBody>

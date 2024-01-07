@@ -62,11 +62,11 @@ const Ragister = () => {
           method: "POST",
           body: JSON.stringify(user),
           headers: {
-              
+            "Content-Type": "application/json",
           },
         }
       );
-console.log("response:",response.status);
+      console.log("response:", response.status);
       if (!response.ok) {
         if (response.status === 409) {
           setNotification("user already exists....");
