@@ -1,16 +1,16 @@
 // Routes.js
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Userid from "./pages/User_id";
+import Login from "./pages/customer/Login";
+import Home from "./pages/customer/Home";
+import Register from "./pages/customer/Register";
+import Userid from "./pages/customer/User_id";
 // import Admin from "./pages/Admin";
-import Admin from "./pages/Admin";
-import Salesexc from "./pages/Salesexc";
-import AddEmployee from "./pages/AddEmployee";
+import Admin from "./pages/admin/Admin";
+import Salesexc from "./pages/salesteam/Salesexc";
+import AddEmployee from "./pages/admin/AddEmployee";
 import SalesAnalysis from "./pages/SalesAnalysis";
-import AddProduct from "./pages/AddProduct";
+import AddProduct from "./pages/salesteam/AddProduct";
 
 function AppRoutes() {
   const router = createBrowserRouter([
@@ -39,16 +39,16 @@ function AppRoutes() {
       element: <Salesexc />,
     },
     {
-      path:"/addEmployee",
-      element: <AddEmployee/>
+      path: "/addEmployee",
+      element: <AddEmployee />,
     },
     {
-      path:"/salesAnalysis",
-      element: <SalesAnalysis/>
+      path: "/salesAnalysis",
+      element: <SalesAnalysis />,
     },
     {
-      path:"/addProduct",
-      element: <AddProduct/>
+      path: "/addProduct",
+      element: <AddProduct />,
     },
   ]);
   return <RouterProvider router={router} />;

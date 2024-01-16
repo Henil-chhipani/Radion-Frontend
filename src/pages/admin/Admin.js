@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {} from "mdb-react-ui-kit";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import PropTypes from "prop-types";
 import {
   Table,

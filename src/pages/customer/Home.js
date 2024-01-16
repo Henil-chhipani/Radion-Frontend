@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { MDBCarousel, MDBCarouselItem, MDBNavbar } from "mdb-react-ui-kit";
 import ProductList from "./ProductList";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-const Home = () => {  
-
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+const Home = () => {
   return (
     <>
-      <Header isAuthenticated={false}/>
+      <Header isAuthenticated={false} />
       <MDBCarousel showControls showIndicators touch={false}>
         <MDBCarouselItem itemId={1}>
           <img

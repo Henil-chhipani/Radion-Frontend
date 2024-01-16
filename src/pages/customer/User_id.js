@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import {
   MDBBtn,
   MDBCard,
@@ -66,7 +66,6 @@ const User_id = () => {
         <h3>Email: {User?.Email}</h3>
         <h3>Phone: {User?.Phone}</h3>
         <h3>Address: {User?.Address}</h3>
-
       </div>
       <table border={5} style={{ margin: "30px" }}>
         <tr style={{ padding: "10px", margin: "30px" }}>

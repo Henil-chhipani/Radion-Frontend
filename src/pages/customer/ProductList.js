@@ -1,6 +1,6 @@
 // ProductList.js
 import React, { useState, useEffect } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 const ProductList = () => {
@@ -16,7 +16,7 @@ const ProductList = () => {
 
   return (
     <div className="product-list">
-      <MDBContainer style={{maxWidth:'2000px'}}>
+      <MDBContainer style={{ maxWidth: "2000px" }}>
         <MDBRow>
           {Array.isArray(products) && products.length > 0 ? (
             products.map((product) => (

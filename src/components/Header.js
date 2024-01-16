@@ -16,14 +16,14 @@ import {
   MDBDropdownItem,
 } from "mdb-react-ui-kit";
 import { useAuth } from "../utils/Auth";
-import {User_id} from "../pages/User_id.js"
-const Header = ({id}) => {
+import { User_id } from "../pages/customer/User_id.js";
+const Header = ({ id }) => {
   const { isAuthenticated, userFirstName, login, logout } = useAuth();
   const [openBasic, setOpenBasic] = useState(false);
 
   const myImage = require("../Assets/media/img1.png").default;
   let Header_id = id;
-// admin Header code----------------------------------------------------------------------
+  // admin Header code----------------------------------------------------------------------
   if (Header_id == "Admin") {
     return (
       <>
@@ -94,7 +94,7 @@ const Header = ({id}) => {
       </>
     );
   }
- // Sales employee site Header ------------------------------------------------------------
+  // Sales employee site Header ------------------------------------------------------------
   if (Header_id == "Salesexc") {
     return (
       <MDBNavbar expand="lg" light bgColor="white" fixed>
@@ -201,8 +201,11 @@ const Header = ({id}) => {
           </MDBNavbarNav>
 
           {isAuthenticated ? (
-            <MDBBtn style={{ fontSize: "14px", marginRight: "5px",width:"150px" }} href="/user" >
-            Hello, {userFirstName}
+            <MDBBtn
+              style={{ fontSize: "14px", marginRight: "5px", width: "150px" }}
+              href="/user"
+            >
+              Hello, {userFirstName}
             </MDBBtn>
           ) : (
             <MDBBtn
@@ -217,8 +220,8 @@ const Header = ({id}) => {
               href="/login"
             >
               Signup/Login
-            </MDBBtn>)
-            }
+            </MDBBtn>
+          )}
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>

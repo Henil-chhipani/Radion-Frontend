@@ -14,7 +14,7 @@ import {
   MDBBtnGroup,
 } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../utils/Auth";
+import { useAuth } from "../../utils/Auth";
 
 function App() {
   const { isAuthenticated, userFirstName, login, logout } = useAuth();
@@ -51,7 +51,7 @@ function App() {
 
       const responseData = await response.json();
       console.log("Login successful:", responseData);
-      
+
       login(responseData.data.user.FirstName);
       history("/");
     } catch (error) {

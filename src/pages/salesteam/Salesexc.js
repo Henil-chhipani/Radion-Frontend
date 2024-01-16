@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import {
   MDBRow,
   MDBCol,
@@ -13,11 +13,11 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 import {} from "@mui/material";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 
 const Salesexc = () => {
   const [products, setProducts] = useState([]);
-let Header_id="Salesexc";
+  let Header_id = "Salesexc";
   useEffect(() => {
     // Fetch product data from the API
     fetch("http://localhost:3001/api/v1/users/getProducts")
@@ -28,7 +28,7 @@ let Header_id="Salesexc";
 
   return (
     <>
-      <Header id={Header_id}/>
+      <Header id={Header_id} />
 
       <MDBContainer style={{ maxWidth: "2000px" }}>
         <MDBRow>
