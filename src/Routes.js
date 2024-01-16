@@ -11,6 +11,7 @@ import Salesexc from "./pages/salesteam/Salesexc";
 import AddEmployee from "./pages/admin/AddEmployee";
 import SalesAnalysis from "./pages/SalesAnalysis";
 import AddProduct from "./pages/salesteam/AddProduct";
+import Attendence from "./pages/salesteam/Attendence";
 
 function AppRoutes() {
   const router = createBrowserRouter([
@@ -49,6 +50,10 @@ function AppRoutes() {
     {
       path: "/addProduct",
       element: <AddProduct />,
+    },
+    {
+      path: "/Attendence",
+      element: <Attendence />,
     },
   ]);
   return <RouterProvider router={router} />;

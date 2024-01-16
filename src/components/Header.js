@@ -129,13 +129,13 @@ const Header = ({ id }) => {
               <MDBNavbarItem>
                 <MDBDropdown>
                   <MDBDropdownToggle tag="a" className="nav-link" role="button">
-                    Dropdown
+                    Function
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
-                    <MDBDropdownItem link>Action</MDBDropdownItem>
-                    <MDBDropdownItem link>Another action</MDBDropdownItem>
-                    <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                  </MDBDropdownMenu>
+                  <MDBDropdownItem link href="/Attendence">Attendence</MDBDropdownItem>
+                    <MDBDropdownItem link > Another action</MDBDropdownItem>
+                    <MDBDropdownItem link> Something else here</MDBDropdownItem>
+                  </MDBDropdownMenu>  
                 </MDBDropdown>
               </MDBNavbarItem>
             </MDBNavbarNav>
